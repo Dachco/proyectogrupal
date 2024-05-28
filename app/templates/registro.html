@@ -1,0 +1,34 @@
+{%extends 'base.html' %}
+
+{% block title%} Registro {%endblock%}
+
+{%block content%}
+    <h1>Registro de Usuarios</h1>
+    <br><br><br><br>
+
+    <!-- <form action ="" method="post">
+        <label for ="password">Nombre de Usuario</label>
+        <input type="text" name="username" id="username">
+        <br><br>
+        <label for ="password">Contraseña del Usuario</label>
+        <input type="password" name="password" id="password">
+        <br><br>
+        <input type="submit" value="Registrar">
+    </form>-->
+
+    <form action="/registro" method="post">
+        {{form.username.label}} {{form.username}}
+        {{form.password.label}} {{form.password}}
+        {{form.submit}}
+    </form>   
+    <br><br>
+
+    {%if error%}
+        <p style="color: red;">{{error}} </p>
+    {%endif%}
+
+    <!--{%if error1%}
+        <p style="color: red;">{{error1}} </p>
+    {%endif%}-->
+
+{%endblock%}

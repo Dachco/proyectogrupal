@@ -1,0 +1,23 @@
+{%extends 'base.html' %}
+
+{% block title%} Software {%endblock%}
+
+{% block content%}
+    
+    <h1>Programa - Ingenieria de Software</h1>
+    <p>
+        <ul>
+            <li>Título obtenido:	Ingeniero de Software</li>
+            <li>Modalidad:	        Presencial</li>
+            <li>Horarios:	        Diurno, Nocturno</li>
+            <li>Créditos:	        150</li>
+            <li>Aprobación oficial: Resolución 014637 de agosto 12/2021 – MEN</li>
+            <li>SNIES	            110616</li>
+        </ul>
+    </p>
+
+    <div class="imagen_1"> 
+        <img src="{{url_for('static', filename='img/Logo.png')}}" alt="Error en Logo.png">
+    </div>
+
+{%endblock%}

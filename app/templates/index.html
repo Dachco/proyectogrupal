@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<head>
+    <title> Pagina Prueba</title>
+</head>
+<body>
+
+{% if nombre%}
+<h1>Bienvenidos {nombre}a mi pagina web </h1>
+{% else%}
+<h2>Bienvenido; usuario no registrado</h2>
+{% endif%}
+
+<h2>Lista de estudintes ausentes </h2>
+<ul>
+    {% for elemen in elementos %}
+</ul>
+<li> {{elemen}}</li>
+{% endfor%}
+
+
+</body>
+</html>

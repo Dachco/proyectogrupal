@@ -1,0 +1,21 @@
+body{
+    font-family: sans-serif;
+    background-color: bisque;
+}
+
+h1{
+    color: cornflowerblue;
+}
+h2{
+    color: darkgoldenrod;
+}
+p{
+    color: aliceblue;;
+}
+li{
+    color: ghostwhite;
+}
+
+.imagen_1{
+    background-color: darkgoldenrod;
+}
