@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, EmailField
-
+import pyodbc
 import conectar as db
 
 app = Flask(__name__)
@@ -42,32 +42,46 @@ def index():
 def softw():
      return render_template('softw.html')
  
-class RegistroForm(FlaskForm) :
-    username = StringField("Nombre de Usuario : ")
-    password = PasswordField("Password : ")
-    submit = SubmitField("Registrar")
- 
-@app.route('/registro', methods=['GET', 'POST'])
+@app.route("/registro")
 def registro():
-    form = RegistroForm()
+     return render_template('registro.html') 
+ 
+ 
+@app.route('/productos')
+def productos():
+
+    cursor = db.sql_server_connection.cursor()
+    cursor.execute("SELECT * FROM Productos")
+    productos = cursor.fetchall()
+
+    return render_template('productos.html', productos=productos)
+
+#class RegistroForm(FlaskForm) :
+#    username = StringField("Nombre de Usuario : ")
+#    password = PasswordField("Password : ")
+#    submit = SubmitField("Registrar")
+ 
+#@app.route('/registro', methods=['GET', 'POST'])
+#def registro():
+#    form = RegistroForm()
     
-    if request.method =='POST':
-        username = request.form['username']
-        password = request.form['password']
+#    if request.method =='POST':
+#        username = request.form['username']
+#        password = request.form['password']
 #       print(f"Nombre de Usuario : {username}, Contraseña : {password}")
   
-        if  (len(username) >= 6 and  len(username) <= 20) and (len(password) >= 8 and  len(password) <= 20) :
-            cursor = db.database.cursor()
-            sql = "INSERT INTO usuarios(nombreusuario, nombres, apellidos, contrasena, email, celular) VALUES (%s,%s,%s,%s,%s,%s)"
-            data= (username,username,username,password,username,username)
-            cursor.execute(sql, data)
-            db.database.commit()
-            return f"""Nombre de Usuario : {username},
-                       Contraseña        : {password}"""
-            # print(f"Nombre de Usuario : {username}")
-        else :
-            error = 'Nombre de usuario no valido, debe tener entre 6 y 20 caracteres o la contraseña no valido, debe tener entre 8 y 20 caracteres'
-            return render_template('registro.html',form=form, error = error)
+ #       if  (len(username) >= 6 and  len(username) <= 20) and (len(password) >= 8 and  len(password) <= 20) :
+ #           cursor = db.database.cursor()
+ #           sql = "INSERT INTO usuarios(nombreusuario, nombres, apellidos, contrasena, email, celular) VALUES (%s,%s,%s,%s,%s,%s)"
+ #           data= (username,username,username,password,username,username)
+ #           cursor.execute(sql, data)
+ #           db.database.commit()
+ #           return f"""Nombre de Usuario : {username},
+ #                      Contraseña        : {password}"""
+ #           # print(f"Nombre de Usuario : {username}")
+  #      else :
+  #          error = 'Nombre de usuario no valido, debe tener entre 6 y 20 caracteres o la contraseña no valido, debe tener entre 8 y 20 caracteres'
+  #          return render_template('registro.html',form=form, error = error)
         
         #if  len(password) >= 8 and  len(password) <= 20 :
         #    return print(f"La contraseña es : {password}")
@@ -75,7 +89,7 @@ def registro():
         #    error1 = 'Contraseña no valido, debe tener entre 8 y 20 caracteres'
         #    return render_template('registro.html',form=form , error1 = error1)
          
-    return render_template('registro.html', form = form) 
+   # return render_template('registro.html', form = form) 
     
 
 @app.route('/menu/<nombre>/<int:semestre>', methods=['GET', 'POST'])

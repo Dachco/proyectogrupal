@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Productos
+{% endblock %}
+
+{% block content %}
+    <h1>Productos</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Detalle</th>
+                <th>Precio</th>
+                <th>Imagen</th>
+                <th>Imagen</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for producto in productos %}
+            <tr>
+                <td>{{ producto.Id }}</td>
+                <td>{{ producto.Nombre }}</td>
+                <td>{{ producto.Detalle }}</td>
+                <td>{{ producto.Precio }}</td>
+                <td><img src="{{ producto.ImagenUrl }}" alt="{{ producto.Nombre }}" width="100"></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
