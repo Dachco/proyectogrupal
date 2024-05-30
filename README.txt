@@ -13,9 +13,11 @@ python -m venv clase
 
 luego procedemos a instalar todo lo que necesitamos 
 con un comando super genial que instala todo lo que hay en el archivo requerimientos tambien en powershell
+pip freeze > requerimientos.txt
 
 pip install -r requerimientos.txt
 
 asi instalamos todo de una
 
 luego ejecutamos main.py desde visual con la flechita
+
