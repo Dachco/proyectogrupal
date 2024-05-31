@@ -18,8 +18,8 @@
         <nav>
             <ul>
                 <li><a href="{{ url_for('inicio') }}">Inicio</a></li>
-                <li><a href="softw">Hombres</a></li>
-                <li><a href="productos">Mujeres</a></li>
+                <li><a href="{{ url_for('softw') }}">Hombres</a></li>
+                <li><a href="{{ url_for('productos') }}">Mujeres</a></li>
             </ul>
         </nav>
         <div class="login">
@@ -36,6 +36,9 @@
             </form>
         </div>
     </div>
+
+    {%block content%}
+    {%endblock%}
 
     <script src="{{ url_for('static', filename='js/header.js') }}"></script>
 </body>

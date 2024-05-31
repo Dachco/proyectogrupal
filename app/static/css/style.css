@@ -1,24 +1,80 @@
+/* Estilos para el body */
 body {
-    font-family: sans-serif;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
     background-image: url('https://img.freepik.com/foto-gratis/fondo-pantalla-grunge-oscuro-3d-atmosfera-ahumada_1048-16218.jpg');
     background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el cuerpo */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
 }
 
+/* Estilos para el header */
+header {
+    background-color: rgba(0, 0, 0, 0.7); /* Color de fondo del encabezado con transparencia */
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-h1{
+/* Estilos para el logo */
+.logo {
+    width: 100px;
+}
+
+/* Estilos para la barra de navegación */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* Estilos para el botón de inicio de sesión */
+.btn-login {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Estilos para el contenido */
+.content {
+    padding: 20px;
+}
+
+/* Estilos para los encabezados */
+h1 {
     color: cornflowerblue;
 }
-h2{
+
+h2 {
     color: darkgoldenrod;
 }
-p{
-    color: aliceblue;;
+
+/* Estilos para los párrafos */
+p {
+    color: aliceblue;
 }
-li{
+
+/* Estilos para las listas */
+li {
     color: ghostwhite;
 }
 
-.imagen_1{
+/* Estilos para una clase específica */
+.imagen_1 {
     background-color: darkgoldenrod;
 }
