@@ -3,26 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Universitaria - {%block title%}
-            {%endblock%}
-    </title>
-    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <title>Universitaria - {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="{{url_for('inicio')}}">Inicio</a></li>
-            <li><a href="{{url_for('productos')}}">Ayuda</a></li>
-            <li><a href="{{url_for('softw')}}">Ingenieria</a></li>
-            <li><a href="{{url_for('registro')}}">Registro de Usuario</a></li>
+    <header>
+        <div class="logo">
+            <img src="{{url_for('static', filename='img/logo.png')}}" alt="Error en Logo.png">
+        </div>
+        <div class="search">
+            <input type="text" placeholder="Buscar...">
+            <button type="button">Buscar</button>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('inicio') }}">Inicio</a></li>
+                <li><a href="softw">Hombres</a></li>
+                <li><a href="productos">Mujeres</a></li>
+            </ul>
+        </nav>
+        <div class="login">
+            <button id="loginBtn" type="button">Iniciar Sesión</button>
+        </div>
+    </header>
 
-        </ul>
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <!-- Aquí irá el contenido del formulario de inicio de sesión -->
+            <form id="loginForm" action="/login" method="post">
+                <!-- Campos del formulario -->
+            </form>
+        </div>
+    </div>
 
-    </nav>
-    {%block content%}
-    {%endblock%}
-    <script src="{{url_for('static', filename='js/layout.js')}}"></script>
-    <script src="{{url_for('static', filename='js/registro.js')}}"></script>
-
+    <script src="{{ url_for('static', filename='js/header.js') }}"></script>
 </body>
 </html>
